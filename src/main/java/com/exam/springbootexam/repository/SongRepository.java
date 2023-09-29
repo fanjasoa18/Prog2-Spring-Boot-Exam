@@ -1,0 +1,12 @@
+package com.exam.springbootexam.repository;
+
+import com.exam.springbootexam.model.SongModel;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface SongRepository extends JpaRepository<SongModel, Long> {
+    List<SongModel> findByLyricsContaining(String keyword);
+}
